@@ -1,0 +1,583 @@
+
+<section>
+    <style>
+        .tab {
+            text-indent: 40px;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .column {   
+            float: left;
+            width: 50%;
+        }  
+        
+        /* Clear floats after the columns */ 
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .defaulttable {
+          display: table;
+        }
+        .defaulttable thead {
+          display: table-header-group;
+        }
+        .defaulttable tbody {
+          display: table-row-group;
+        }
+        .defaulttable tfoot {
+          display: table-footer-group;
+        }
+        .defaulttable tbody>tr:hover,
+        .defaulttable tbody>tr {
+          display: table-row;
+        }
+        .defaulttable tbody>tr:hover>td,
+        .defaulttable tbody>tr>td {
+          display: table-cell;
+        }
+        .defaulttable,
+        .defaulttable tbody,
+        .defaulttable tbody>tr:hover,
+        .defaulttable tbody>tr,
+        .defaulttable tbody>tr:hover>td,
+        .defaulttable tbody>tr>td,
+        .defaulttable tbody>tr:hover>th,
+        .defaulttable tbody>tr>th,
+        .defaulttable thead>tr:hover>td,
+        .defaulttable thead>tr>td,
+        .defaulttable thead>tr:hover>th,
+        .defaulttable thead>tr>th,
+        .defaulttable tfoot>tr:hover>td,
+        .defaulttable tfoot>tr>td,
+        .defaulttable tfoot>tr:hover>th,
+        .defaulttable tfoot>tr>th {
+          background: transparent;
+          background-color: #FFF;
+          border: 0px solid #000;
+          border-spacing: 0px;
+          border-collapse: separate;
+          empty-cells: show;
+          padding: 0px;
+          margin: 0px;
+          outline: 0px;
+          font-size: 100%;
+          color: #000;
+          vertical-align: top;
+          text-align: left;
+          font-family: sans-serif;
+          table-layout: auto;
+          caption-side: top;
+          -webkit-border-radius: 0px;
+          -moz-border-radius: 0px;
+          border-radius: 0px;
+          -webkit-background-clip: padding-box;
+          -moz-background-clip: padding;
+          background-clip: padding-box;
+        }
+
+        .limiter {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .wrap-table100 {
+            width: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        table {
+            border-spacing: 1;
+            border-collapse: collapse;
+            background: #F8F8F8;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        table * {
+            position: relative;
+        }
+        table td, table th {
+            padding-left: 8px;
+        }
+        table thead tr {
+            height: 60px;
+            background: #36304a;
+        }
+        table tbody tr {
+            height: 50px;
+        }
+        table tbody tr:last-child {
+            border: 0;
+            border-right: none;
+        }
+        table tbody td:last-child {
+            border-right: none;
+        }
+        table td, table th {
+            text-align: left;
+        }
+        table td.l, table th.l {
+            text-align: right;
+        }
+        table td.c, table th.c {
+            text-align: center;
+        }
+        table td.r, table th.r {
+            text-align: center;
+        }
+
+
+        .table100-head th{
+            color: #fff;
+            line-height: 1.2;
+            font-weight: unset;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #E8E8E8;
+        }
+
+        tbody tr {
+            color: #606060;
+            line-height: 1.2;
+            font-weight: unset;
+        }
+
+        tbody tr:hover {
+            color: #555555;
+            background-color: #f5f5f5;
+            cursor: pointer;
+
+        }
+
+        .lastcolumn {
+            text-align: right;
+        }
+        @media screen and (max-width: 640px) {
+            table {
+                overflow-x: auto;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            table {
+                display: block;
+            }
+            table > *, table tr, table td, table th {
+                display: block;
+            }
+            table thead {
+                display: none;
+            }
+            table tbody tr {
+                height: auto;
+                padding: 37px 0;
+            }
+            table tbody tr td {
+                padding-left: 40% !important;
+                margin-bottom: 24px;
+            }
+            table tbody tr td:last-child {
+                margin-bottom: 0;
+            }
+            table tbody tr td:before {
+                font-family: OpenSans-Regular;
+                font-size: 14px;
+                color: #999999;
+                line-height: 1.2;
+                font-weight: unset;
+                position: absolute;
+                width: 40%;
+                left: 30px;
+                top: 0;
+            }
+
+            tbody tr {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <section class="intro" id="SpinW">
+        <div class="logo-wrapper">
+            <div class="logo"><span class="visually-hidden">SpinW</span></div>
+        </div>
+    </section>
+    
+    <section class="title" id="title">
+        <div class="grid-wrapper">
+            <div class="header">
+                <!-- Remove logo--full class to only show brand mark -->
+                <div class="logo logo--full"><span class="visually-hidden">SpinW</span></div>
+            </div>
+            <div class="content">
+                <h1>SpinW and Horace</h1>
+                <div class="description">
+                    A tutorial on how to integrate SpinW as a calculation engine in Horace.
+                </div>
+            </div>
+            <div class="credit">
+                <hr/>
+                <div class="label">Presented By</div>
+                <div class="name">Duc Le</div>
+                <div class="role">Instrument Scientist - ISIS Facility</div>
+                <div class="name">Simon Ward</div>
+                <div class="role">Scientific Software Developer - ESS</div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section>
+    <section class="subsection color--radiant" id="interface_head">
+    <div class="grid-wrapper">
+        <div class="logo"></div>
+        <h1> The Horace-SpinW interface </h1>
+        <div class="description">
+            How to use a SpinW model in Horace for fitting
+        </div>
+    </div>
+    </section>
+
+    <section class="blank" id="interface1">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Horace recap</div>
+            </div>
+            <content>
+                <h3> Defining models in Horace: a recap </h3>
+                <p> Horace accepts a variety of functions to model data: </p>
+                <table style="width:70%">
+                    <tr> <td> <code> y = fn(x1, x2, ..., xn, pars) </code> </td> <td> Functions operating directly on data coordinates (e.g. gaussian peaks) </td>
+                    <tr> <td> <code> s = fn(qh, qk, ql, en, pars) </code> </td> <td> Model $S(\mathbf{q},\omega)$ functions evaluated for each $\omega$ </td>
+                    <tr> <td> <code> [w, s] = fn(qh, qk, ql, pars) </code> </td> <td> General model $S(\mathbf{q},\omega)$ functions </td>
+                </table>
+                <p> In all cases, immediately following the coordinates, Horace expects a vector of parameter values to be fitted </p>
+                <p> After this parameter values, Horace also accepts any other input variables as model constants which will be passed to the model </p>
+                <p> The fit functions generally only accept the <code> s = fn(qh, qk, ql, en, pars) </code> form for $S(\mathbf{q}, \omega)$ models, 
+                    so energy convolution needs to be done by the modelling code </p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="interface2">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">SpinW recap</div>
+            </div>
+            <content>
+                <h3> The SpinW <code>spinwave</code> method: a recap </h3>
+                <p> In order to calculate the spin wave spectrum in SpinW, something like the following needs to be used: </p>
+                <figure class="code">
+                    <pre><code class="matlab">
+spec = sw_obj.spinwave(hkl, 'hermit', false, 'formfact', true);
+spec = sw_egrid(spec, 'component', 'Sperp', 'Evect', 0:0.05:10);
+                    </code></pre>
+                </figure>
+                <p> Comparing with what Horace needs, we notice that: </p>
+                <div style="margin-left:40px">
+                    <ul>
+                        <li> The model (fittable) parameters are not set here, but much earlier in the definition of the model </li>
+                        <li> We need the combination of both <code> spinwave </code> and <code> sw_egrid </code> to get a function of the
+                             form <code> s = fn(qh, qk, ql, en, pars) </code> which Horace needs </li>
+                    </ul>
+                </div>
+                <p> Fortunately the wrapped model function has is provided in SpinW, as the method <code> spinw.horace_sqw </code>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="interface3">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">spinw.horace_sqw</div>
+            </div>
+            <content>
+                <h3> The <code>spinw.horace_sqw</code> method </h3>
+                <p> <code> horace_sqw </code> has the same signature as a standard Horace $S(\mathbf{q}, \omega)$ function,
+                    <code> horace_sqw(qh, qk, ql, en, pars, varargin) </code> </p>
+                <p> So, it can be used directly in a Horace <code> fit_sqw </code> call. <p>
+                <p> In order to define which model parameter is to be varied in the fit, you have to give <code> horace_sqw </code>
+                    a <code> mat </code> parameter which is a cell array of the matrix names to be varied in the order they appear in
+                    the <code> pars </code> vector </p>
+                <p> Since the parameters of <code> pars </code> are scalars, if the matrix you refer to is not isotropic (e.g.
+                    representing a Heisenberg interaction), a special syntax to refer to which matrix element(s) needs to vary has to be used. </p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="interface4">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">spinw.horace_sqw</div>
+            </div>
+            <content>
+                <p> A simple example: </p>
+                <div class="container" style="display: grid;    grid-template-columns: 55% 5% auto;
+                                                                grid-template-rows: 60% 5% auto; height: 100%;">
+                    <div style="grid-column-start:1; grid-column-end:2; grid-row-start:1; grid-row-end:2">
+                        <figure class="code">
+                            <pre><code class="matlab">
+J = 1.2;
+K = 0.1;
+tri = sw_model('triAF', J);
+tri.addmatrix('label', 'K', 'value', diag([0 0 K]));
+tri.addaniso('K');
+
+fwhm = 0.75;
+scalefactor = 1;
+ws = cut_sqw(sqw_file, [0.05], [-0.1, 0.1], [-0.1, 0.1], [0.5]);
+fitobj = multifit_sqw(ws);
+fitobj.set_fun(@tri.horace_sqw);
+fitobj.set_pin({[J K fwhm scalefactor], 'mat', {'J_1', 'K(3,3)'}, ...
+    'hermit', false, 'useFast', true, 'formfact', true});
+ws_sim = fitobj.simulate();
+[ws_fit, fit_dat] = fitobj.fit()
+                            </code></pre>
+                        </figure>
+                    </div>
+                    <div style="grid-column-start:3; grid-column-end:4; grid-row-start:1; grid-row-end:2">
+                        <p> The vector <code> [J K fwhm scalefactor] </code> is the parameters vector. We need to tell SpinW that it corresponds to the
+                            Heisenberg nearest neighbour interaction <code> J_1 </code> and the easy-place anisotropy <code> K </code>. </p>
+                        <p> Because <code> J </code> is isotropic, we can just give the matrix name in <code> mat </code> </p>
+                        <p> But, <code> K </code> only applies to the <i>zz</i> element, so we need to tell SpinW that in <code> mat </code> </p>
+                        <p> <code> fwhm </code> and <code> scalefactor </code> are parameters which are always added by <code> horace_sqw </code>
+                            to denote the energy FWHM and intensity scale factor. </p>
+                        <p> The other (non-varying) parameters we pass to <code> multifit </code> are just standard SpinW keyword arguments </p>
+                    </div>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="interface5">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">spinw.horace_sqw</div>
+            </div>
+            <content>
+                <p> There are a few keyword arguments unique to <code> horace_sqw </code> </p>
+                <div style="margin-left:40px">
+                    <ul>
+                        <li> <code> 'useFast' </code> - This tells <code> horace_sqw </code> to use a faster but slightly less accurate 
+                            code than <code> spinwave </code>. In particular, this code achieves a speed gain by: </li>
+                            <div style="margin-left:40px">
+                                <ul>
+                                    <li> Only calculating <code> Sperp </code> rather than full $S^{\alpha\beta}$ tensor </li>
+                                    <li> Only calculating magnon creation (positive energy / neutron energy loss) modes. </li>
+                                    <li> Ignoring twins </li>
+                                </ul>
+                            </div>
+                        <li> <code> 'resfun' </code> - This is tells <code> horace_sqw </code> what function to use for the energy
+                            convolution. Options are: </li>
+                            <div style="margin-left:40px">
+                                <ul>
+                                    <li> <code> 'gauss' </code> - a gaussian (one parameter: fwhm) </li>
+                                    <li> <code> 'lor' </code> - a lorentzian (one parameter: fwhm) </li>
+                                    <li> <code> 'voigt' </code> - a pseudovoigt (two parameters : fwhm and lorentzian fraction) </li>
+                                    <li> A function handle to a function which will be accepted by Horace's <code> disp2sqw </code> method </li>
+                                </ul>
+                            </div>
+                        <li> <code> horace_sqw </code> appends the parameters needed by <code> resfun </code> to the end of the parameter
+                            vector and then adds a scale factor between the data and calculation after that </li>
+                    </ul>
+                </div>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="interface6">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">matparser</div>
+            </div>
+            <content>
+                <h3> The <code> 'mat' </code> argument </h3>
+                <p> Horace expects a parameter vector, so we have to tell SpinW which parameter is which </p>
+                <p> In simple cases, just the name of the corresponding SpinW matrix, or a string denoting which single matrix element suffice </p>
+                <p> For more complicated cases, an additional parameter <code> 'selector' </code>, a $3\times3$ logical matrix needs to be used </p>
+                <p> This tells the <code> matparser </code> function which SpinW uses to decode the <code> 'mat' </code> argument which matrix
+                    elements the parameter corresponds to </p>
+                <div class="container" style="display: grid;    grid-template-columns: 55% 5% auto;
+                                                                grid-template-rows: 60% 5% auto; height: 100%;">
+                    <div style="grid-column-start:1; grid-column-end:2; grid-row-start:1; grid-row-end:2">
+                        <figure class="code">
+                            <pre><code class="matlab">
+Dvec = [0.1 0.2 0.3];
+swobj.addmatrix('label', 'DM', 'value', Dvec);
+swobj.addcoupling('mat', 'DM', 'bond', 1);
+
+sel(:,:,1) = [0 0 0; 0 0 1; 0 -1 0];    % Dx
+sel(:,:,2) = [0 0 1; 0 0 0; -1 0 0];    % Dy
+sel(:,:,3) = [0 1 0; -1 0 0; 0 0 0];    % Dz
+
+fitobj.set_fun(@swobj.horace_sqw);
+fitobj.set_pin({Dvec, 'mat', {'DM', 'DM', 'DM'}, ...
+    'selector', sel, 'hermit', false})
+fitobj.fit()
+                             </pre></code>
+                        </figure>
+                    </div>
+                    <div style="grid-column-start:3; grid-column-end:4; grid-row-start:1; grid-row-end:2">
+                        <p> <code> 'selector' </code> is a $3\times 3\times N$ array where $N$ is the number of parameters </p>
+                        <p> Each $3\times 3$ matrix denotes which elements of the corresponding matrix in <code> 'mat' </code> goes with that parameter </p>
+                    </div>
+            </content>
+        </div>
+    </section>
+
+</section>
+    
+<section>
+    <section class="subsection color--radiant" id="mex_head">
+    <div class="grid-wrapper">
+        <div class="logo"></div>
+        <h1> Mex files in SpinW </h1>
+        <div class="description">
+            How to speed up your calculations with parallelised compiled helper libraries
+        </div>
+    </div>
+    </section>
+
+    <section class="blank" id="mex1">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Mex files</div>
+            </div>
+            <content>
+                <h3> SpinW mex files </h3>
+                <p> SpinW contains a few C libraries to speed up the spin wave calculations </p>
+                <p> They perform standard linear algebra algorithms on stacks of matrices in parallel. </p>
+                <table style="width:70%">
+                    <tr> <td> <code> eig_omp </code> </td> <td> Calculates eigenvalues / eigenvectors of a stack of matrices </td>
+                    <tr> <td> <code> chol_omp </code> </td> <td> Calculates the Cholesky factorisation of a stack of matrices </td>
+                    <tr> <td> <code> sw_mtimesx </code> </td> <td> Calculates matrix-matrix or matrix-vector multiplications </td>
+                </table>
+                <p> For each $\mathbf{q}$ SpinW has to diagonalise or solve a Hamiltonian matrix. If this could be done in parallel
+                    there will be a speed up (typically around 2-3 times for a 4-core computer). </p>
+                <p> The <code> 'optmem' </code> option in <code> spinwave </code> determines how many $\mathbf{q}$'s are calculated
+                    at once - the more $\mathbf{q}$'s, the greater the speed up (hence more memory is better!) </p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="mex2">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Using Mex files</div>
+            </div>
+            <content>
+                <h3> Using mex files in SpinW </h3>
+                <p> To tell SpinW to use the mex'ed libraries, do: </p>
+                <figure class="code">
+                    <pre><code class="matlab">
+swpref.setpref('usemex',true)
+                    </pre></code>
+                </figure>
+                <p> You can just type <code> swpref </code> again to show all the options </p>
+                <p> If the distributed compiled mex files are not compatible with you system you will get an error </p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="mex3">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Compiling Mex files</div>
+            </div>
+            <content>
+                <h3> Compiling SpinW mex files </h3>
+                <p> The SpinW distribution contains compiled versions of these files for the standard 64-bit operating systems
+                    (Windows, Linux and Mac OS X), but in case you need to compile it yourself... </p>
+                <p> First, to compile the mex files, you will need to have installed a Matlab-compatible compiler - see:
+                    <a href="https://uk.mathworks.com/support/compilers.html">https://uk.mathworks.com/support/compilers.html</a> </p>
+                <p> This is generally <code> Visual Studio </code> in Windows, <code> gcc </code> on Linux and <code> XCode </code> on Mac. </p>
+                <p> Set up mex using: </p>
+                <figure class="code">
+                    <pre><code class="matlab">
+mex -setup
+                    </pre></code>
+                </figure>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="mex4">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Compiling Mex files</div>
+            </div>
+            <content>
+                <p> Then compile the SpinW mex files with: </p>
+                <figure class="code">
+                    <pre><code class="matlab">
+sw_mex
+                    </pre></code>
+                </figure>
+                <p> Or: </p>
+                <figure class="code">
+                    <pre><code class="matlab">
+sw_mex('test', true)
+                    </pre></code>
+                </figure>
+                <p> To run a test suite which will also tell you how much of a speed up you might expect (it takes ~5min to run). </p>
+            </content>
+        </div>
+    </section>
+
+</section>
+
+<section>
+    <section class="subsection color--radiant" id="mex_head">
+    <div class="grid-wrapper">
+        <div class="logo"></div>
+        <h1> Example of Horace-SpinW integration </h1>
+        <div class="description">
+            Modelling spin waves in Pr(Ca<sub>0.9</sub>Sr<sub>0.1</sub>)<sub>2</sub>Mn<sub>2</sub>O<sub>7</sub>
+        </div>
+    </div>
+    </section>
+
+</section>
+
+
+<section>
+    <section class="subsection color--radiant" id="mex_head">
+    <div class="grid-wrapper">
+        <div class="logo"></div>
+        <h1> Example of Horace-SpinW fitting </h1>
+        <div class="description">
+            Fitting spin waves in bcc-Iron with SpinW and Horace
+        </div>
+    </div>
+    </section>
+
+</section>
+
