@@ -360,11 +360,11 @@ ws_sim = fitobj.simulate();
                     </div>
                     <div style="grid-column-start:3; grid-column-end:4; grid-row-start:1; grid-row-end:2">
                         <p> The vector <code> [J K fwhm scalefactor] </code> is the parameters vector. We need to tell SpinW that it corresponds to the
-                            Heisenberg nearest neighbour interaction <code> J_1 </code> and the easy-place anisotropy <code> K </code>. </p>
+                            Heisenberg nearest neighbour interaction <code> J_1 </code> and the easy-place anisotropy <code> K </code> </p>
                         <p> Because <code> J </code> is isotropic, we can just give the matrix name in <code> mat </code> </p>
                         <p> But, <code> K </code> only applies to the <i>zz</i> element, so we need to tell SpinW that in <code> mat </code> </p>
-                        <p> <code> fwhm </code> and <code> scalefactor </code> are parameters which are always added by <code> horace_sqw </code>
-                            to denote the energy FWHM and intensity scale factor. </p>
+                        <p> <code> fwhm </code> and <code> scalefactor </code> are parameters which are added by <code> horace_sqw </code>
+                            to denote the energy FWHM and intensity scale factor (may be omitted, in which case it is taken to be unity and fixed) </p>
                         <p> The other (non-varying) parameters we pass to <code> multifit </code> are just standard SpinW keyword arguments </p>
                     </div>
             </content>
@@ -500,7 +500,7 @@ swpref.setpref('usemex',true)
                     </pre></code>
                 </figure>
                 <p> You can just type <code> swpref </code> again to show all the options </p>
-                <p> If the distributed compiled mex files are not compatible with you system you will get an error </p>
+                <p> If the distributed compiled mex files are not compatible with your system you will get an error </p>
             </content>
         </div>
     </section>
