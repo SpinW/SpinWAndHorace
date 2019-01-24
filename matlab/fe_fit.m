@@ -106,7 +106,7 @@ cpars = {'mat', {'J1', 'D(3,3)'}, 'hermit', false, 'optmem', 1, ...
 swpref.setpref('usemex',true);
 
 % Initial parameters:
-J = -16;     % Exchange constant in meV - Note previous value was J*S (S=2)
+J = -16;     % Exchange constant in meV - Note previous value was J*S (S=2.5)
 D = -0.1;    % SIA constant in meV
 gam = 66;
 temp = 10;

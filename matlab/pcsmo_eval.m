@@ -1,3 +1,11 @@
+% SpinW / Horace integration example
+%
+% This tutorial illustrates how to evaluate a (fairly complex) SpinW
+% model on Horace ( http://horace.isis.rl.ac.uk ) INS data.
+%
+% The dataset are sets of measurements of Pr(Ca0.9Sr0.1)2Mn2O7 using
+% the MAPS spectrometer at ISIS at different neutron energies.
+
 % Loop through the different energy data and make 2D cuts along (h00) vs E
 ei = [25 35 50 70 140];
 qstp = [0.02 0.02 0.025 0.025 0.05];
@@ -20,6 +28,8 @@ for ii = 1:numel(ei)
     idx = find(sum(ws_cut(ii).data.s,2)>0);
     qmax = ws_cut(ii).data.p{1}(idx(end)) * 0.5;
     ws_bkg(ii) = cut_sqw(ws_cut(ii), [qmax-5*qstp(ii),qmax], []);
+    % Uncomment the code below to generate plots of the q range
+    % of the background cuts and what they look like
     %plot(ws_cut(ii)); hold all; plot([qmax-5*qstp(ii),qmax],[0 0],'-r'); keep_figure;
     %plot(ws_bkg(ii)); keep_figure;
     ws_sub(ii) = ws_cut(ii) - replicate(ws_bkg(ii), ws_cut(ii));
@@ -76,8 +86,10 @@ subplot(122); hold all;
     xlabel('(h,0) (rlu)');
     ylabel('Energy (meV)');
 
+% Why don't we see the same as in Johnstone's Fig 2?
+    
 %%
-% Spin Hamiltonina parameters from Johnstone et al.
+% Spin Hamiltonian parameters from Johnstone et al.
 JF1 = -11.39;
 JA = 1.5;
 JF2 = -1.35;
@@ -85,7 +97,8 @@ JF3 = 1.5;
 Jperp = 0.88;
 D = 0.074;
 
-% Define the SpinW model
+% Define the SpinW model - same as the file prcasrmn2o7.m
+% From the "real world" systems tutorial.
 lat = [5.408 5.4599 19.266];
 alf = [90 90 90];
 SM4 = 7/4;   % Spin length for Mn4+
@@ -177,3 +190,8 @@ lz 0 10
 keep_figure;
 plot(wsim);
 keep_figure;
+
+% Put the two figures on one plot
+wss = symmetrise_sqw(ws_sub(idx),[0 1 0],[0 0 1],[0 0 0]);
+spaghetti_plot([compact(d2d(wss)) compact(wsim)])
+lz 0 2
