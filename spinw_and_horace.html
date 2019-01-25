@@ -430,8 +430,7 @@ ws_sim = fitobj.simulate();
                                                                 grid-template-rows: 60% 5% auto; height: 100%;">
                     <div style="grid-column-start:1; grid-column-end:2; grid-row-start:1; grid-row-end:2">
                         <figure class="code">
-                            <pre><code class="matlab">
-Dvec = [0.1 0.2 0.3];
+                            <pre><code class="matlab">Dvec = [0.1 0.2 0.3];
 swobj.addmatrix('label', 'DM', 'value', Dvec);
 swobj.addcoupling('mat', 'DM', 'bond', 1);
 
@@ -442,8 +441,7 @@ sel(:,:,3) = [0 1 0; -1 0 0; 0 0 0];    % Dz
 fitobj.set_fun(@swobj.horace_sqw);
 fitobj.set_pin({Dvec, 'mat', {'DM', 'DM', 'DM'}, ...
     'selector', sel, 'hermit', false})
-fitobj.fit()
-                             </pre></code>
+fitobj.fit()</code></pre>
                         </figure>
                     </div>
                     <div style="grid-column-start:3; grid-column-end:4; grid-row-start:1; grid-row-end:2">
@@ -551,7 +549,7 @@ sw_mex
                 <figure class="code">
                     <pre><code class="matlab">
 sw_mex('test', true)
-                    </pre></code>
+                    </code></pre>
                 </figure>
                 <p> To run a test suite which will also tell you how much of a speed up you might expect (it takes ~5min to run). </p>
             </content>
@@ -577,7 +575,7 @@ sw_mex('test', true)
         <div class="grid-wrapper">
             <div class="header">
                 <div class="logo"></div>
-                <div class="section">Pr(Ca<sub>0.9</sub>Sr<sub>0.1</sub>)<sub>2</sub>Mn<sub>2</sub>O<sub>7 Horace data</div>
+                <div class="section">Pr(Ca<sub>0.9</sub>Sr<sub>0.1</sub>)<sub>2</sub>Mn<sub>2</sub>O<sub>7</sub> Horace data</div>
             </div>
             <content>
                 <div class="profile">
@@ -592,9 +590,9 @@ sw_mex('test', true)
                         <h3> Pr(Ca<sub>0.9</sub>Sr<sub>0.1</sub>)<sub>2</sub>Mn<sub>2</sub>O<sub>7 Horace data </h3>
                         <p> The <code> .sqw </code> files should be in the folders previously used for Horace </p>
                         <p> If you're not using a desktop, you can get the files from: 
-                            <a href="https://www.dropbox.com/s/dv35ljlp04y1jf6/pcsmo.zip?dl=0" style="color: blue">Dropbox</a>
+                            <a href="https://www.dropbox.com/s/dv35ljlp04y1jf6/pcsmo.zip?dl=0" style="color: blue" target="_blank">Dropbox</a>
                         <p> Make 2D slices along $(h00)$ and energy transfer and compare to figure 2 of <a href="https://arxiv.org/pdf/1210.7108.pdf"
-                            style="color: blue">Johnstone et al.</a>
+                            style="color: blue" target="_blank">Johnstone et al.</a>
                         <p> </p>
                         <figure class="code">
                             <pre><code class="matlab">
@@ -611,6 +609,7 @@ for ii = 1:numel(ei);
     keep_figure;
 end
                             </code></pre>
+                        </figure>
                     </div>
                 </div>
             </content>
@@ -738,6 +737,7 @@ wss = symmetrise_sqw(ws_sub(idx),[0 1 0],[0 0 1],[0 0 0]);
 spaghetti_plot([compact(d2d(wss)) compact(wsim)])
 lz 0 2
                             </code></pre>
+                        </figure>
                     </div>
                 </div>
             </content>
